@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/src/Book.java" charset="windows-1253" />
+    <file url="file://$PROJECT_DIR$/src/BookDBManager.java" charset="windows-1253" />
+    <file url="file://$PROJECT_DIR$/src/MainWindow.java" charset="windows-1253" />
+    <file url="file://$PROJECT_DIR$/src/ScrollableBookList.java" charset="windows-1253" />
+    <file url="file://$PROJECT_DIR$/src/StringTransformer.java" charset="windows-1253" />
+  </component>
+</project>
