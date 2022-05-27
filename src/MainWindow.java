@@ -59,12 +59,12 @@ public class MainWindow{
     	mainFrame.getContentPane().setLayout(null);
 		
 		// -------------------------------------- Button for Viewing/Deleting Books -------------------------------------- //
-		JButton viewOrDeleteButton = new JButton("1 - Προβολή όλων των βιβλίων");
+		JButton viewOrDeleteButton = new JButton("1 - View Books");
 		viewOrDeleteButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//If database is empty, dsplay appropriate message
 				if (manager.bookDB.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Η βάση είναι άδεια !");
+					JOptionPane.showMessageDialog(null, "There are no books!");
 				}
 				//If not, close main window and open Database Panel
 				else {
@@ -76,12 +76,12 @@ public class MainWindow{
 		viewOrDeleteButton.setBounds(10, 11, 414, 31);
 		mainFrame.getContentPane().add(viewOrDeleteButton);
 		// -------------------------------------- Button for Finding Books -------------------------------------- //
-		JButton findBooksButton = new JButton("2 - Αναζήτηση Βιβλίου");
+		JButton findBooksButton = new JButton("2 - Find a book");
 		findBooksButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				//Same with previous button
-				if (manager.bookDB.isEmpty()) JOptionPane.showMessageDialog(null, "Η βάση είναι άδεια !");
+				if (manager.bookDB.isEmpty()) JOptionPane.showMessageDialog(null, "There are no books!");
 				else {
 					mainFrame.dispose();
 					OpenFindBookFrame();
@@ -91,7 +91,7 @@ public class MainWindow{
 		findBooksButton.setBounds(10, 53, 414, 31);
 		mainFrame.getContentPane().add(findBooksButton);
 		// -------------------------------------- Button for Adding Books -------------------------------------- //
-		JButton addBooksButton = new JButton("3 - Εισαγωγή Βιβλίου");
+		JButton addBooksButton = new JButton("3 - Insert a book");
 		addBooksButton.setBounds(10, 95, 414, 31);
 		mainFrame.getContentPane().add(addBooksButton);
 		addBooksButton.addActionListener(new ActionListener() {
@@ -102,7 +102,7 @@ public class MainWindow{
 			}
 		});
 		// -------------------------------------- Button for Quiting the application -------------------------------------- //
-		JButton quitButton = new JButton("4 - Έξοδος");
+		JButton quitButton = new JButton("4 - Quit");
 		quitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
@@ -123,7 +123,7 @@ public class MainWindow{
     public void openScrollDBFrame() {
     	scrollDBFrame=new JFrame();
     	scrollDBFrame.setVisible(true);
-    	scrollDBFrame.setTitle("Συλλογή Βιβλίων");
+    	scrollDBFrame.setTitle("Book Collection");
     	//Hacky stuff, should resize it
     	scrollDBFrame.setSize(1000, 500);
         JPanel panel;
@@ -144,7 +144,7 @@ public class MainWindow{
     	JPanel wholePanel=new JPanel();
     	JPanel p = new JPanel(new GridLayout(manager.getBookLength(),2));
     	//Go Back Button
-        JButton cancelButton = new JButton("Επιστροφή");
+        JButton cancelButton = new JButton("Return");
         cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				getSCrollDBFrame().dispose();
@@ -220,14 +220,14 @@ public class MainWindow{
     	JPanel contentPane = new JPanel();
     	
     	deleteFrame.setVisible(true);
-    	deleteFrame.setTitle("Διαγραφή Βιβλίου");
+    	deleteFrame.setTitle("Delete book");
     	deleteFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     	deleteFrame.setBounds(100, 100, 450, 129);
     	contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
     	deleteFrame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Θέλετε σίγουρα να διαγράψετε αυτό το βιβλίο ?");
+		JLabel lblNewLabel = new JLabel("Are you sure you want to delete it?");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 414, 39);
 		contentPane.add(lblNewLabel);
@@ -240,7 +240,7 @@ public class MainWindow{
 				try {
 					manager.DeleteABook(title);
 					manager.UpdateBookDB();
-					JOptionPane.showMessageDialog(null, "Επιτυχής Διαγραφή Βιβλίου");
+					JOptionPane.showMessageDialog(null, "Book deleted successfully");
 					deleteFrame.dispose();
 					if (manager.bookDB.isEmpty())
 						try {
@@ -256,7 +256,7 @@ public class MainWindow{
 				}
 			}
 		});
-		JButton noGoBackButton = new JButton("Όχι");
+		JButton noGoBackButton = new JButton("No");
 		noGoBackButton.setBounds(85, 61, 89, 23);
 		deleteFrame.add(noGoBackButton);
 		noGoBackButton.addActionListener(new ActionListener() {
@@ -276,7 +276,7 @@ public class MainWindow{
 		findFrame=new JFrame();
 		findFrame.setVisible(false);
 		findFrame.setVisible(true);
-		findFrame.setTitle("Εύρεση Βιβλίου");
+		findFrame.setTitle("Find a book");
 		findFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		findFrame.setBounds(100, 100, 404, 241);
 		contentPane = new JPanel();
@@ -284,7 +284,7 @@ public class MainWindow{
 		findFrame.setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton FindButton = new JButton("Εύρεση");
+		JButton FindButton = new JButton("Find");
 		FindButton.setBounds(210, 147, 119, 44);
 		contentPane.add(FindButton);
 		
@@ -293,7 +293,7 @@ public class MainWindow{
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("Εισάγετε τον τίτλο του βιβλίου ή το όνομα του συγγραφέα:");
+		JLabel lblNewLabel = new JLabel("Insert the title of the book or the author");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(10, 11, 368, 67);
 		contentPane.add(lblNewLabel);
@@ -310,7 +310,7 @@ public class MainWindow{
 			}
 		});
 		JButton BackButton;
-		BackButton = new JButton("Επιστροφή");
+		BackButton = new JButton("Return");
 		BackButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				findFrame.dispose();
@@ -344,11 +344,11 @@ public class MainWindow{
 			}
 			contentPane.add(genreOfBook);
 			
-			JLabel lblNewLabel_1_3_1 = new JLabel("Επιλογή Είδους:");
+			JLabel lblNewLabel_1_3_1 = new JLabel("Select Genre:");
 			lblNewLabel_1_3_1.setBounds(10, 24, 159, 19);
 			contentPane.add(lblNewLabel_1_3_1);
 			
-			JButton btnNewButton = new JButton("Συνέχεια");
+			JButton btnNewButton = new JButton("Continue");
 			btnNewButton.setBounds(94, 66, 149, 23);
 			contentPane.add(btnNewButton);
 			btnNewButton.addActionListener(new ActionListener() {
@@ -366,7 +366,7 @@ public class MainWindow{
 	public void secondRegisterFrame(String genre) {
 		registerFrameSec=new JFrame();
 		registerFrameSec.setVisible(true);
-		registerFrameSec.setTitle("Καταχώρηση Νέου Βιβλίου");
+		registerFrameSec.setTitle("Insert a new book");
 		registerFrameSec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		registerFrameSec.setBounds(100, 100, 450, 328);
 		registerFrameSec.getContentPane().setLayout(null);
@@ -377,7 +377,7 @@ public class MainWindow{
 		JTextField bookScientificField=new JTextField();
 		 Book randomBook= new Book();
 		//----------------------------------------------------//
-		JLabel lblNewLabel_1 = new JLabel("Εισαγωγή Τίτλου:");
+		JLabel lblNewLabel_1 = new JLabel("Insert a title:");
 		lblNewLabel_1.setBounds(20, 11, 159, 19);
 		registerFrameSec.getContentPane().add(lblNewLabel_1);
 		
