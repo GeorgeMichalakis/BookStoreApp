@@ -386,7 +386,7 @@ public class MainWindow{
 		bookTitle.setColumns(10);
 		
 		//----------------------------------------------------//
-		JLabel lblNewLabel_1_1 = new JLabel("Εισαγωγή Συγγραφέα:");
+		JLabel lblNewLabel_1_1 = new JLabel("Insert Author:");
 		lblNewLabel_1_1.setBounds(20, 42, 159, 19);
 		registerFrameSec.getContentPane().add(lblNewLabel_1_1);
 		
@@ -396,7 +396,7 @@ public class MainWindow{
 		
 		//----------------------------------------------------//
 		
-		JLabel lblNewLabel_1_2 = new JLabel("Εισαγωγή ISBN:");
+		JLabel lblNewLabel_1_2 = new JLabel("Insert ISBN:");
 		lblNewLabel_1_2.setBounds(20, 73, 159, 19);
 		registerFrameSec.getContentPane().add(lblNewLabel_1_2);
 		
@@ -405,7 +405,7 @@ public class MainWindow{
 		registerFrameSec.getContentPane().add(bookISBN);
 		//----------------------------------------------------//
 		
-		JLabel lblNewLabel_1_3 = new JLabel("Εισαγωγή Έτους Έκδοσης:");
+		JLabel lblNewLabel_1_3 = new JLabel("Insert Date of being Published:");
 		lblNewLabel_1_3.setBounds(20, 107, 159, 19);
 		registerFrameSec.getContentPane().add(lblNewLabel_1_3);
 		
@@ -414,7 +414,7 @@ public class MainWindow{
 		registerFrameSec.getContentPane().add(bookYearPublish);
 		//----------------------------------------------------//
 		
-		JLabel lblNewLabel_1_3_1 = new JLabel("Επιλογή Είδους Βιβλίου:");
+		JLabel lblNewLabel_1_3_1 = new JLabel("Select Book Genre:");
 		lblNewLabel_1_3_1.setBounds(20, 138, 159, 19);
 		registerFrameSec.getContentPane().add(lblNewLabel_1_3_1);
 		
@@ -425,7 +425,7 @@ public class MainWindow{
 		}
 		registerFrameSec.getContentPane().add(specificKindOfBook);
 		if (genre==randomBook.genres[1]) {
-			JLabel lblNewLabel_1_3_1_1 = new JLabel("Επιστημονικό Πεδίο:");
+			JLabel lblNewLabel_1_3_1_1 = new JLabel("Field:");
 			lblNewLabel_1_3_1_1.setBounds(20, 168, 207, 19);
 			registerFrameSec.getContentPane().add(lblNewLabel_1_3_1_1);
 			
@@ -435,7 +435,7 @@ public class MainWindow{
 		}
 		//----------------------------------------------------//
 		
-		JButton registerButton = new JButton("Καταχώρηση Βιβλίου");
+		JButton registerButton = new JButton("Register Book");
 		registerButton.setBounds(117, 255, 197, 23);
 		registerFrameSec.getContentPane().add(registerButton);
 		

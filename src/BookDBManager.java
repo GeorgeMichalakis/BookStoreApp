@@ -148,7 +148,7 @@ public class BookDBManager {
 		for (Book book : bookDB){
 			if (titleOrAuthor_Transformed.equals(book.title)||titleOrAuthor_Transformed.equals(book.author)) return null;
 		}
-		return "Δεν υπάρχει κάποια εγγραφή που να ταιριάζει με την είσοδο";
+		return "Can't find any related results";
 	}
 	
 	public String HereIsYourBook(String titleOrAuthor) {
@@ -275,24 +275,24 @@ public class BookDBManager {
 		BigInteger  ISBN= new BigInteger("0");
 		int Year=0;
 		if (bookTitle.isEmpty()) 
-			return "Ο τίτλος του βιβλίου είναι κενός";
+			return "Title Of Book is empty";
 		else if (bookAuthor.isEmpty()) 
-			return "Το όνομα του συγγραφέα του βιβλίου είναι κενό";
+			return "Author's name is empty";
 		try {
 			ISBN= new BigInteger((bookISBN));
 			if (String.valueOf(ISBN).length()<13)
-				return "Ο αριθμός ISBN πρέπει να έχει 13 ψηφία";
+				return "ISBN must be a 13 digit number";
 			else if (Integer.parseInt(""+ISBN.toString().charAt(0))!=9 || Integer.parseInt(""+ISBN.toString().charAt(1))!=7 || (Integer.parseInt(""+ISBN.toString().charAt(2))!=8 && Integer.parseInt(""+ISBN.toString().charAt(2))!=9)) 
-				return "Ο αριθμός ISPN πρέπει να ξεκινάει από 978 ή 979";
+				return "ISBN needs to start either 978 or 979";
 			try{
 				Year=Integer.parseInt(bookYearPublish);
-				if (!(Year>1000)) return "Το έτος έκδοσης πρέπει να έχει 4 ψηφία";
+				if (!(Year>1000)) return "Year of Publishing needs to be a 4 digit number";
 				}
 			catch (Exception e1) {
-				return "Μη έγκυρο έτος έκδοσης";
+				return "Year of Publishing invalid";
 			}
 		} catch (Exception e2) {
-			return "Μη έγκυρο ISBN";
+			return "Invalid ISBN";
 		}
 		return null;
 	}

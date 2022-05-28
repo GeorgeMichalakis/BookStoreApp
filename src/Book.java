@@ -8,13 +8,13 @@ import java.math.BigInteger;
  */
 public class Book {
 	
-	public String[] genres = {"коцотевмийо","епистгломийо"};
+	public String[] genres = {"Literature","Scientific"};
 	public String genre;
 	public String title;
 	public String author;
 	public BigInteger  ISBN;
 	public int year;
-	public String[] specifyGenres= {"пеяиодийо","бибкио","пяайтийа сумемдяиым"};
+	public String[] specifyGenres= {"Magazine","Book","Conference Paper"};
 	public String specificGenre;
 	public String scientificDescription;
 	
